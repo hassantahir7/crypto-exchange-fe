@@ -32,8 +32,8 @@ const DepthCard: React.FC<{ depth?: any }> = ({ depth }) => {
                 overflow: "hidden",
                 whiteSpace: "nowrap",
                 textOverflow: "ellipsis",
-                marginRight: "10px", 
-                display: "inline-block", 
+                marginRight: "10px",
+                display: "inline-block",
                 width: "100%",
               }}
             >
@@ -46,7 +46,7 @@ const DepthCard: React.FC<{ depth?: any }> = ({ depth }) => {
                 textOverflow: "ellipsis",
                 marginRight: "10px",
                 display: "inline-block",
-                width: "100%", 
+                width: "100%",
               }}
             >
               <strong>Asks:</strong> {orderDepth.a}

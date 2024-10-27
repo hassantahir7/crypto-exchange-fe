@@ -1,6 +1,6 @@
-import { io } from 'socket.io-client';
+import { io } from "socket.io-client";
 
-const url = process.env.REACT_APP_SOCKET_URL
+const url = process.env.REACT_APP_SOCKET_URL;
 
 const socket = io(url);
 
@@ -21,24 +21,23 @@ interface KlineData {
 export const subscribeToSocketEvents = (
   setTicker: (data: any) => void,
   setDepth: (data: any) => void,
-  setTrades: React.Dispatch<React.SetStateAction<Trade[]>>,  
-  setKline: (data: KlineData | null) => void,  
-  setFuturesKline: (data: KlineData | null) => void,  
+  setTrades: React.Dispatch<React.SetStateAction<Trade[]>>,
+  setKline: (data: KlineData | null) => void,
+  setFuturesKline: (data: KlineData | null) => void
 ) => {
-  socket.on('ticker', setTicker);
-  socket.on('depth', setDepth);
-  socket.on('trades', (data: Trade) =>
-    setTrades((prev: Trade[]) => [data, ...prev.slice(0, 4)])  
+  socket.on("ticker", setTicker);
+  socket.on("depth", setDepth);
+  socket.on("trades", (data: Trade) =>
+    setTrades((prev: Trade[]) => [data, ...prev.slice(0, 4)])
   );
-  socket.on('kline', (data: KlineData) => setKline(data));  
-  socket.on('futuresKline', (data: KlineData) => setFuturesKline(data));  
+  socket.on("kline", (data: KlineData) => setKline(data));
+  socket.on("futuresKline", (data: KlineData) => setFuturesKline(data));
 };
 
-
 export const unsubscribeFromSocketEvents = () => {
-  socket.off('ticker');
-  socket.off('depth');
-  socket.off('trades');
-  socket.off('kline');
-  socket.off('futuresKline');
+  socket.off("ticker");
+  socket.off("depth");
+  socket.off("trades");
+  socket.off("kline");
+  socket.off("futuresKline");
 };
