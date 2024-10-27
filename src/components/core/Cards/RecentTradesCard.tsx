@@ -1,9 +1,14 @@
 import React from 'react';
 import { Card, CardContent, Typography, List, ListItem, Box } from '@mui/material';
-import AccessTimeIcon from '@mui/icons-material/AccessTime'; // Replace with your desired icon
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import LoadingSpinner from '../../common/Spinner/LoadingSpinner';
 
-const RecentTradesCard: React.FC<{ trades: any[] }> = ({ trades }) => (
+interface Trade {
+  p: number; // Price
+  q: number; // Quantity
+}
+
+const RecentTradesCard: React.FC<{ trades: Trade[] }> = ({ trades }) => (
   <Card sx={{ height: '100%', boxShadow: 3, borderRadius: '16px' }}>
     <CardContent>
       <Box display="flex" alignItems="center" mb={2} sx={{ position: 'relative' }}>
@@ -15,7 +20,7 @@ const RecentTradesCard: React.FC<{ trades: any[] }> = ({ trades }) => (
       {trades.length > 0 ? (
         <List>
           {trades.map((trade, index) => (
-            <ListItem key={index} sx={{ padding: '5.5px 0' }}> {/* Decreased vertical padding */}
+            <ListItem key={index} sx={{ padding: '5.5px 0' }}>
               <Typography>
                 <strong>Price:</strong> {trade.p}, <strong>Quantity:</strong> {trade.q}
               </Typography>

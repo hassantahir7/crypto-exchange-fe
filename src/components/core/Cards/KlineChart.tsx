@@ -7,14 +7,11 @@ import LoadingSpinner from '../../common/Spinner/LoadingSpinner';
 // Register required components and scales
 Chart.register(...registerables);
 
-// Ensure the KlineData structure matches your incoming data
 interface KlineData {
-    k: {
-        o: number; // Open price
-        c: number; // Close price
-        h: number; // High price
-        l: number; // Low price
-    };
+    o: number; // Open price
+    c: number; // Close price
+    h: number; // High price
+    l: number; // Low price
 }
 
 interface KlineChartProps {
@@ -24,13 +21,11 @@ interface KlineChartProps {
 }
 
 const KlineChart: React.FC<KlineChartProps> = ({ title, klineData, lineColor }) => {
-    console.log('klineData', klineData);
-    
     const priceData = klineData ? [
-        klineData.k.o, // Open price
-        klineData.k.h, // High price
-        klineData.k.l, // Low price
-        klineData.k.c  // Close price
+        klineData.o, // Open price
+        klineData.h, // High price
+        klineData.l, // Low price
+        klineData.c  // Close price
     ] : [];
 
     const maxPrice = Math.max(...priceData);
@@ -43,12 +38,12 @@ const KlineChart: React.FC<KlineChartProps> = ({ title, klineData, lineColor }) 
                 label: 'Price',
                 data: priceData,
                 borderColor: lineColor,
-                backgroundColor: `${lineColor}33`, // Semi-transparent color
+                backgroundColor: `${lineColor}33`, 
                 fill: true,
                 tension: 0.4, // Smooth line
-                pointStyle: 'circle', // Point style can be changed (circle, rect, etc.)
-                pointRadius: 4, // Size of the points
-                pointHoverRadius: 6, // Size of the points on hover
+                pointStyle: 'circle',
+                pointRadius: 4,
+                pointHoverRadius: 6,
             },
         ],
     };
@@ -68,10 +63,10 @@ const KlineChart: React.FC<KlineChartProps> = ({ title, klineData, lineColor }) 
                     display: true,
                     text: 'Price',
                 },
-                min: minPrice - 5, // Set minimum to slightly below the lowest price for visibility
-                max: maxPrice + 5, // Set maximum to slightly above the highest price for visibility
+                min: minPrice - 5,
+                max: maxPrice + 5,
                 ticks: {
-                    stepSize: 5, // Adjust as needed for better visibility
+                    stepSize: 5,
                 },
             },
         },
