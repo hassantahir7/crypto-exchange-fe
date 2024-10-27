@@ -2,7 +2,24 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Features
+
+- **Real-Time Data**: Fetch and display real-time stock prices and market data.
+- **Interactive Charts**: Visualize stock trends using charts built with Chart.js.
+- **Responsive Design**: Optimized for desktop and mobile devices.
+- **Global Font**: Uses the "Outfit" font for a modern and consistent look.
+
+## Technologies Used
+
+- **React**: A JavaScript library for building user interfaces.
+- **Material-UI**: A popular React UI framework for building responsive and beautiful applications.
+- **Chart.js**: A powerful library for creating dynamic and interactive charts.
+- **CSS Modules**: For modular and reusable CSS styles.
+
 ## Available Scripts
+
+## Clone the repository
+Clone the repo using git clone https://github.com/hassantahir7/crypto-exchange-fe.git
 
 In the project directory, you can run:
 
