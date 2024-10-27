@@ -13,10 +13,9 @@ const Dashboard: React.FC = () => {
   const [trades, setTrades] = useState<any[]>([]);
   const [kline, setKline] = useState<any>(null);
   const [futuresKline, setFuturesKline] = useState<any>(null);
-  const [accountData, setAccountData] = useState<any>(null);
 
   useEffect(() => {
-    subscribeToSocketEvents(setTicker, setDepth, setTrades, setKline, setFuturesKline, setAccountData);
+    subscribeToSocketEvents(setTicker, setDepth, setTrades, setKline, setFuturesKline);
     return () => unsubscribeFromSocketEvents();
   }, []);
 

@@ -24,7 +24,6 @@ export const subscribeToSocketEvents = (
   setTrades: React.Dispatch<React.SetStateAction<Trade[]>>,  
   setKline: (data: KlineData | null) => void,  
   setFuturesKline: (data: KlineData | null) => void,  
-  setAccountData: (data: any) => void
 ) => {
   socket.on('ticker', setTicker);
   socket.on('depth', setDepth);
@@ -33,8 +32,6 @@ export const subscribeToSocketEvents = (
   );
   socket.on('kline', (data: KlineData) => setKline(data));  
   socket.on('futuresKline', (data: KlineData) => setFuturesKline(data));  
-  socket.emit('getAccountData');
-  socket.on('accountData', setAccountData);
 };
 
 
@@ -44,5 +41,4 @@ export const unsubscribeFromSocketEvents = () => {
   socket.off('trades');
   socket.off('kline');
   socket.off('futuresKline');
-  socket.off('accountData');
 };
