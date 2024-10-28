@@ -21,6 +21,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Clone the repository
 Clone the repo using git clone https://github.com/hassantahir7/crypto-exchange-fe.git
 
+## latest branch 
+  main & dev
+
 In the project directory, you can run:
 
 ### `npm start`
